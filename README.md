@@ -235,7 +235,8 @@ tools to the source repository.
 
 Original parent-project code and documentation are licensed under
 GPL-2.0-or-later; see [LICENSE](LICENSE) and [NOTICE.md](NOTICE.md). The
-modified Rockbox submodule retains its upstream licenses. The Beta v0.1.0
-asset set therefore includes the exact V88 Rockbox source commit as well as the
-parent build and validation source. A reachable public repository remains the
-preferred long-term source location.
+modified Rockbox source retains its upstream licenses. The Beta v0.1.0 asset
+set includes the complete corresponding V88 Rockbox source as well as the
+parent build and validation source in
+`Y2-Rockbox-Beta-v0.1.0-Source.zip`. The development repository and its Git
+history remain local and are not published as a separate GitHub repository.

@@ -55,10 +55,10 @@ Git history is not yet suitable for a direct push:
 1. Historical commits still contain a 24,014,626-byte raw physical logcat blob.
    Removing it from the current index does not remove it from history.
 2. The parent repository has no Git remote.
-3. The Rockbox submodule is 17 commits ahead of
-   `https://github.com/multiwirth/rockbox-y1.git` and still points to that
-   upstream URL. The private commit cannot be resolved by a public clone until
-   it is pushed to a reachable fork.
+3. The Rockbox working tree contains unpublished Y2-specific commits and must
+   not be referenced as a public submodule. Public binary releases instead
+   need a reviewed complete corresponding source archive with the applicable
+   upstream license notices.
 4. Generated vendor-derived firmware must not be published unless
    redistribution rights are established.
 5. V82 failed and is rejected. V83 now requires its physical save/reboot and

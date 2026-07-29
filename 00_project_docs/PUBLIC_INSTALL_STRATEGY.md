@@ -66,8 +66,8 @@ Remaining public-release requirements:
 - Reconfirm official-stock restore after the final candidate.
 - Produce an end-user flow that does not redistribute vendor firmware without a clear
   legal basis.
-- Publish the Rockbox fork from a reachable repository and update the parent
-  submodule URL.
+- Attach the complete corresponding Rockbox source and applicable license
+  notices to every binary release.
 - Retain the documented GPL-2.0-or-later license for the parent repository's
   original scripts and documentation.
 - Clear warnings that the current full-restore flow can erase user data.
@@ -98,8 +98,9 @@ Do not describe the method as an exploit in public-facing docs unless there is a
 
 1. Retain GPL-2.0-or-later for the parent repository's original code and
    documentation, and preserve every third-party notice.
-2. Publish the modified Rockbox fork first, preserve its upstream history and license,
-   and replace the parent repository's submodule URL with that reachable fork.
+2. Package the complete corresponding modified Rockbox source with its
+   upstream license notices as a release asset. Keep the development Git
+   history local unless it is intentionally approved for publication.
 3. Create a clean public parent repository containing source, patches, build tools,
    validators, public documentation and small non-private validation summaries.
 4. Exclude Innioasis firmware, generated firmware images/ZIPs, APKs, raw dumps,
