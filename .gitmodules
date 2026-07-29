@@ -1,0 +1,4 @@
+[submodule "11_rockbox_android/rockbox-y1"]
+	path = 11_rockbox_android/rockbox-y1
+	url = https://github.com/SPYCEMAGIC/rockbox-y1.git
+	branch = y1
