@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Read the Beta v0.1.0 guide
+    url: https://github.com/SPYCEMAGIC/Y2-Rockbox/releases/tag/v0.1.0-beta
+    about: Read the flashing guide, limitations, and recovery instructions before reporting a problem.
+  - name: Recovery and troubleshooting
+    url: https://github.com/SPYCEMAGIC/Y2-Rockbox#recovery-and-troubleshooting
+    about: Start here if the player does not boot, storage is missing, or flashing failed.

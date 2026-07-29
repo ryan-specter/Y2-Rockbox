@@ -1,0 +1,74 @@
+name: Beta test report
+description: Share successful tests, compatibility results, and partial failures
+title: "[Beta test]: "
+labels:
+  - testing
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping test the beta. Successful reports are valuable too: they show whether the build behaves consistently across different Y2 units.
+  - type: input
+    id: device
+    attributes:
+      label: Device details
+      description: Enter any model, capacity, purchase date, or hardware details you know.
+      placeholder: Innioasis Y2, capacity/colour/approximate purchase date
+    validations:
+      required: true
+  - type: dropdown
+    id: firmware
+    attributes:
+      label: Original stock firmware
+      options:
+        - Innioasis Y2 3.1.7
+        - Another Y2 firmware version
+        - Unknown
+    validations:
+      required: true
+  - type: input
+    id: beta
+    attributes:
+      label: Tested build
+      placeholder: Beta v0.1.0 / V88
+    validations:
+      required: true
+  - type: checkboxes
+    id: results
+    attributes:
+      label: Tests completed successfully
+      description: Select only tests you personally completed.
+      options:
+        - label: Flashing and first boot
+        - label: Normal Rockbox cold boot
+        - label: Volume Up stock-interface cold boot
+        - label: Boot Settings save and restart
+        - label: Audio playback for at least 15 minutes
+        - label: Hardware playback and volume controls
+        - label: Sleep and wake
+        - label: Theme selection and persistence
+        - label: Internal-storage playback
+        - label: microSD playback
+        - label: USB storage, safe eject, and Rockbox return
+        - label: Normal power off
+        - label: Official-stock rollback
+        - label: Bluetooth playback
+  - type: textarea
+    id: failures
+    attributes:
+      label: Failures or unexpected behaviour
+      description: Describe any failed, skipped, or inconsistent test. Open a separate bug report if the problem is reproducible.
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Include battery behaviour, connected headphones, microSD details, or anything else that may affect the result.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmation
+      options:
+        - label: This report is based on testing I personally performed on an Innioasis Y2.
+          required: true
+        - label: I removed personal information from anything attached.
+          required: true

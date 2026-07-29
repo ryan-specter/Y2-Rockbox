@@ -1,0 +1,60 @@
+name: Feature request
+description: Suggest an improvement or new Y2 Rockbox capability
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Feature requests are welcome. Please explain the user problem first; implementation may be limited by the Y2 hardware, Android 4.4.2, or Rockbox itself.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Explain the situation or limitation that prompted the request.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed feature
+      description: Describe how you would like the feature to behave.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives or workarounds
+      description: Tell us about any workaround you currently use.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Feature area
+      options:
+        - Playback and audio
+        - Bluetooth
+        - Boot behaviour
+        - Controls
+        - Display and themes
+        - Storage and USB
+        - Settings
+        - Installation and recovery
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Additional context
+      description: Add examples, mock-ups, links, or hardware details if useful.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched the existing issues for a similar request.
+          required: true
+        - label: This request relates to the Innioasis Y2 Rockbox project.
+          required: true

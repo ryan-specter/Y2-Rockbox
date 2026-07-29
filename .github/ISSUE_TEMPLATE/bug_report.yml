@@ -1,0 +1,99 @@
+name: Bug report
+description: Report a reproducible problem with the Y2 Rockbox beta
+title: "[Bug]: "
+labels:
+  - bug
+  - needs info
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing Y2 Rockbox. This beta is only intended for the Innioasis Y2 running official firmware 3.1.7.
+
+        If the player is currently unsafe to use, stop testing and restore the official firmware. Do not upload files containing personal information.
+  - type: dropdown
+    id: firmware
+    attributes:
+      label: Original stock firmware
+      description: Which firmware was installed before flashing the beta?
+      options:
+        - Innioasis Y2 3.1.7
+        - Another Y2 firmware version
+        - Unknown
+    validations:
+      required: true
+  - type: input
+    id: beta
+    attributes:
+      label: Y2 Rockbox build
+      description: Enter the release or build name, such as Beta v0.1.0 / V88.
+      placeholder: Beta v0.1.0 / V88
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the problem, including what appeared on the screen.
+      placeholder: Tell us what went wrong.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the exact actions that trigger the problem.
+      placeholder: |
+        1. Power off the Y2
+        2. Hold...
+        3. Select...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often does it happen?
+      options:
+        - Every time
+        - Most of the time
+        - Sometimes
+        - Happened once
+    validations:
+      required: true
+  - type: dropdown
+    id: recovery
+    attributes:
+      label: Recovery status
+      description: Can the player still start Rockbox, the stock interface, or be restored?
+      options:
+        - Both Rockbox and stock still start
+        - Only Rockbox starts
+        - Only the stock interface starts
+        - Official stock firmware was restored successfully
+        - The player does not start
+        - Not tested
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs, photos, or additional details
+      description: Drag in useful files after checking that they contain no personal information. Do not modify diagnostic files before copying them.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Safety checks
+      options:
+        - label: I am testing on an Innioasis Y2, not a Y1 or another device.
+          required: true
+        - label: I searched the existing issues for the same problem.
+          required: true
+        - label: I removed personal information from anything attached.
+          required: true

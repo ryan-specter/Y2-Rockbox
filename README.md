@@ -225,6 +225,21 @@ are in
 The current release record is
 [Y2_ROCKBOX_BETA_V0.1.0_RELEASE.md](00_project_docs/Y2_ROCKBOX_BETA_V0.1.0_RELEASE.md).
 
+## Reporting bugs and requesting features
+
+Use [GitHub Issues](https://github.com/SPYCEMAGIC/Y2-Rockbox/issues/new/choose)
+for public beta feedback:
+
+- submit a **Bug report** for reproducible failures;
+- submit a **Feature request** for proposed improvements; or
+- submit a **Beta test report** for successful compatibility results and
+  partial test passes.
+
+Search the [existing issues](https://github.com/SPYCEMAGIC/Y2-Rockbox/issues)
+before opening a new report. Include the original Y2 firmware version, beta
+build, exact reproduction steps and recovery status. Check logs and photos for
+personal information before attaching them.
+
 ## Repository and licensing status
 
 The public model is open source: publish the original source, patch/build
