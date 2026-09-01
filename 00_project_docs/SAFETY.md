@@ -1,32 +1,46 @@
-# Safety Rules
+# Y2 Rockbox Safety Rules
 
-This project must preserve the Innioasis Y2 stock firmware until recovery and backup are proven.
+Updated: 2026-09-01
 
-## Forbidden Without Explicit Approval and Verified Recovery
+Firmware installation can erase user data or make the player unbootable.
+Rockbox Y2 packages are device-specific.
 
-- Do not flash the device.
-- Do not erase partitions.
-- Do not format partitions.
-- Do not unlock the bootloader.
-- Do not write to the Y2 eMMC.
-- Do not run Y1 installers, Y1 updaters, or Y1 ROMs on the Y2.
-- Do not write to `/proc/tpd_keys_enable` on the real device.
-- Do not assume Y1 firmware packages are compatible with Y2.
+## Never do this
 
-## Allowed Safe Work
+- Do not flash a Y1 package, Y1 updater image or another device's preloader.
+- Do not use a package for an unknown Y2 hardware or firmware revision.
+- Do not write generated firmware until its input identity, partition layout,
+  checksums and recovery path have been verified.
+- Do not disconnect or reset the device while an updater is actively writing.
+- Do not let an upstream-version check silently download, build, package or
+  flash a different firmware.
+- Do not publish device-unique protected data or raw private test evidence.
 
-- Offline firmware file analysis.
-- Decompiled APK analysis.
-- Rockbox source comparison.
-- Patch drafting.
-- Harmless Android app builds.
-- Read-only MTKClient exploration only after checking the command.
-- Documentation updates.
+## Before installation
 
-## Current Safe Strategy
+- Back up internal storage and microSD content.
+- Back up the complete hidden `.rockbox` directory, including themes,
+  playlists, settings and databases.
+- Keep the official Innioasis Y2 3.1.7 recovery package available.
+- Verify every release asset against `SHA256SUMS.txt`.
+- Charge the player, use a reliable data cable and avoid USB hubs.
+- Close software that may claim MediaTek USB devices.
 
-Use the official Y2 firmware package and stock launcher decompile as references. Build toward an Android-hosted Rockbox APK or launcher path. Do not modify the real device until backup/recovery and installation paths are understood.
+## Supported public recovery boundary
 
-## Device-Specific Warning
+Beta V2 targets only the Innioasis Y2 on the official 3.1.7 lineage. Both
+published updater formats must be treated as full firmware installations.
+The bottom reset/pinhole is a powered-off device-detection aid; it is not a
+general retry button during a write.
 
-The official Innioasis Y2 updater should be treated as recovery-only because it formats/updates once started. Do not run it casually.
+Stop and use the documented official recovery path after a failed install,
+persistent boot loop, wrong repeated route, missing storage or persistent
+crash dialog. Never substitute recovery files from another device.
+
+## Release evidence
+
+A build is release-ready only after deterministic packaging, offline
+validation, a guarded physical installation, complete readback, route and
+playback regression, USB lifecycle tests, power/sleep tests and official Stock
+rollback. Public summaries omit device identifiers and protected partition
+hashes.

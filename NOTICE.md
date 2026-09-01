@@ -5,9 +5,8 @@ Copyright (C) 2026 Y2 RockBox contributors and are licensed under the GNU
 General Public License, version 2 or (at your option) any later version
 (`GPL-2.0-or-later`). The complete license text is in `LICENSE`.
 
-The Rockbox code used by this project is a modified Rockbox codebase. Its
-complete corresponding V88 source is supplied in the release asset
-`Y2-Rockbox-Beta-v0.1.0-Source.zip`, including the upstream license files
+The `11_rockbox_android/rockbox-y1` submodule is a modified Rockbox codebase.
+It is a separate work with upstream history and license files, including
 `docs/COPYING` and `docs/LICENSES`. Those notices must remain with any source
 or binary distribution.
 

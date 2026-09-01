@@ -3,13 +3,13 @@
 Rockbox for the Innioasis Y2, hosted inside its original Android 4.4.2
 firmware. The project adds a full-screen Rockbox player, selectable cold-boot
 routes, USB mass-storage return, and normal Rockbox theme support while
-retaining the stock Y2 interface and a fixed fastboot safety route.
+retaining the stock Y2 interface and its guarded updater/recovery path.
 
 > [!WARNING]
 > Firmware flashing can erase user data or make the player unbootable. This
-> project is releasing Beta v0.1.0 from the physically tested V88 base. Verify
-> the exact SHA-256 in the release notes before flashing. Innioasis Updater
-> 1.1.2 has been proven to
+> Beta V2 uses the exact physically accepted corrected P17 runtime. Verify the
+> exact SHA-256 in the release notes before flashing.
+> Innioasis Updater 1.1.2 has been proven to
 > hardcode SP Flash Tool `format-download`; it is not a Download Only frontend.
 > It erases the complete player. Do not use the rejected V84 three-partition
 > ZIP with it.
@@ -31,7 +31,51 @@ from a different MediaTek device.
 
 ## Current release status
 
-Beta v0.1.0 uses V88, the latest physically tested firmware. Saved-route
+Public beta releases use simple ordinal labels: **Beta V1** is the original V88
+release, **Beta V2** is the current public release, and **Beta V3** is the next
+planned beta. Existing branches and internal artifact names retain their
+historical identifiers so recorded commands and hashes remain valid.
+
+Beta V2's exact Innioasis-format package is 362,410,130 bytes at SHA-256
+`B9F0A4459B3C3DE0E9F5A6C99EC2F3246492EA065E43FF5996A5BEB0777D026E`.
+It was reconstructed byte-identically twice, installed through the guarded
+P17 writer, and passed the complete cumulative Rockbox, Stock, Boot Settings,
+USB, playback, sleep/wake and protected-state regression. The separate
+Updater CE asset `rom_y2.zip` is deterministically derived from those same
+payloads at SHA-256
+`22195AB5EF775585D73929C05B2FED28BB497C150705A91CC484A02308EB2A46`.
+
+## What is new in Beta V2
+
+- Bluetooth Settings, pairing, A2DP playback, media controls, disconnect and
+  reconnect work from both Rockbox and Stock.
+- Holding Previous/Next seeks within a track. An optional setting lets held
+  Volume buttons skip tracks while short presses continue to change volume.
+- Time/date changes now write and read back the Y2 RTC without freezing the
+  Rockbox UI.
+- Rockbox wheel vibration is adjustable from true-off through multiple
+  strengths while Stock keeps its independent haptic setting.
+- First-connect USB Storage, active USB, safe eject, return, unplug and
+  reconnect are stable on both routes without Stock overlays covering Rockbox.
+- Clean SPYCE animation, a readable Rockbox title and responsive root complete
+  in approximately 28 seconds on the accepted unit.
+- Centre wake, improved Now Playing navigation, PictureFlow cache recovery,
+  persistent Rockbox/Stock routing and Volume-Down Boot Settings are retained.
+- Official Stock rollback, exact runtime recovery and protected-range
+  preservation were physically proven before release.
+
+Beta V3 is expected to concentrate on power-down presentation polish, lyrics
+and broader 480x360 theme diagnostics, high-resolution FLAC stability, DAC and
+wired-audio qualification, the Restart Rockbox/settings audit, database and
+playlist line presentation, and the deferred PictureFlow loading polish. FM
+work remains dependent on a demonstrably working Y2 vendor firmware baseline.
+
+The complete Beta V2 release record and installer-format explanation are in
+[Y2_ROCKBOX_BETA_V2_RELEASE.md](00_project_docs/Y2_ROCKBOX_BETA_V2_RELEASE.md)
+and
+[Y2_BETA_V2_UPDATER_FORMATS.md](00_project_docs/Y2_BETA_V2_UPDATER_FORMATS.md).
+
+Beta V1 uses V88, the latest physically tested firmware. Saved-route
 readback, playback, controls, sleep/wake, theme persistence, internal and
 microSD playback, USB storage/return, the Stock route, power off and official
 stock rollback passed physically.
@@ -51,7 +95,7 @@ Physically rejected: y2-v86-boot-save-repair-innioasis-full.zip
 Reason: Provider worked; route-map write used unavailable shell command printf
 Physically rejected: y2-v87-vendor-shell-save-innioasis-full.zip
 Reason: Save passed; early route-map reader still used unavailable printf
-Beta v0.1.0 base: y2-v88-route-readback-repair-innioasis-full.zip
+Beta V1 base: y2-v88-route-readback-repair-innioasis-full.zip
 Release asset: Y2-Rockbox-Beta-v0.1.0-V88-InnioasisUpdater.zip
 SHA-256: 40636D86943F6F0A1461B6D8C9285A1A50252253447B3DC7D11743533A88E4DE
 Offline validation: 24/24 checks; byte-for-byte package reproduction passed
@@ -88,22 +132,35 @@ copy of music or settings.
 
 ## Flashing
 
-Beta v0.1.0 is the exact complete 12-partition V88 package under the public
-filename `Y2-Rockbox-Beta-v0.1.0-V88-InnioasisUpdater.zip`. The outer rename
-does not alter its bytes or validated SHA-256. Do not convert it into a
-selective update and do not use the rejected three-partition package.
+Beta V2 provides two installable ZIPs containing the same accepted runtime:
+
+- `Y2-Rockbox-Beta-v0.2.0-InnioasisUpdater.zip` retains the same sparse-image
+  package type as Beta V1.
+- `rom_y2.zip` is the canonical Updater CE package, with the Android images
+  converted to raw form for the cross-platform path.
+
+Use only one route and verify its published SHA-256. Full instructions are in
+[Y2_ROCKBOX_BETA_V2_INSTALL_GUIDE.md](00_project_docs/Y2_ROCKBOX_BETA_V2_INSTALL_GUIDE.md).
 
 Flashing is a real device write. Back up first, verify the exact SHA-256 above,
-and follow the illustrated beta guide without improvising retries.
+and follow the release guide without improvising retries.
 
-## Beta v0.1.0 release assets
+## Beta V2 release assets
+
+The release folder contains both firmware formats, `README-FIRST.txt`, the
+Markdown install guide, the complete corresponding source archive, a sanitized
+Updater CE packaging manifest, SHA-256 checksums, the legacy Windows updater,
+and license/notice files. Updater CE itself remains available from its upstream
+project and is not copied into this repository's source history.
+
+## Historical Beta V1 release assets
 
 The assembled beta folder is self-contained for installation. Users do not
 need a separate scatter file, Download Agent, partition image or USB driver
 bundle. It contains:
 
 - `README-FIRST.txt`;
-- the complete Y2 Rockbox Beta v0.1.0 firmware ZIP;
+- the complete Y2 Rockbox Beta V1 firmware ZIP;
 - `InnioasisUpdater_Setup_1.1.2.exe`, including its driver-install stage;
 - an illustrated flashing, operation, USB and theme-install PDF;
 - `SHA256SUMS.txt`;
@@ -126,11 +183,11 @@ The default map after flashing is:
 | No volume button | Rockbox |
 | Volume Up | Y2 stock interface |
 | Volume Down | Boot Settings |
-| Volume Up + Volume Down | Configured for fastboot, but unavailable in beta |
 
 Boot Settings changes only the normal-boot player. Volume Up automatically
-becomes the other player. Volume Down and the both-volume fastboot route are
-fixed and are not shown as choices.
+becomes the other player. Volume Down is fixed and is not shown as a choice.
+Simultaneously holding both volume buttons is unsupported and unassigned for
+the beta; it is not a feature or an acceptance test.
 
 ## Boot Settings
 
@@ -151,10 +208,9 @@ verified, acknowledged, and followed by an automatic restart. If Save times
 out, does not restart, or boots with the old choice, stop testing and preserve
 the complete SD debug folder.
 
-The both-volume route remains configured for fastboot, but the physical button
-chord did not open fastboot during V88 testing. Treat it as unavailable in the
-beta and retain the proven powered-off InnioasisUpdater/pinhole restore
-procedure.
+Fastboot is not included or advertised as a beta feature. Do not depend on a
+both-volume chord. Retain the proven powered-off guarded updater/pinhole restore
+procedure for installation and recovery.
 
 ## Using Rockbox
 
@@ -223,22 +279,7 @@ the engineering and distribution rules. The concrete pre-publication findings
 are in
 [PUBLIC_REPOSITORY_CLEANUP_20260726.md](00_project_docs/PUBLIC_REPOSITORY_CLEANUP_20260726.md).
 The current release record is
-[Y2_ROCKBOX_BETA_V0.1.0_RELEASE.md](00_project_docs/Y2_ROCKBOX_BETA_V0.1.0_RELEASE.md).
-
-## Reporting bugs and requesting features
-
-Use [GitHub Issues](https://github.com/SPYCEMAGIC/Y2-Rockbox/issues/new/choose)
-for public beta feedback:
-
-- submit a **Bug report** for reproducible failures;
-- submit a **Feature request** for proposed improvements; or
-- submit a **Beta test report** for successful compatibility results and
-  partial test passes.
-
-Search the [existing issues](https://github.com/SPYCEMAGIC/Y2-Rockbox/issues)
-before opening a new report. Include the original Y2 firmware version, beta
-build, exact reproduction steps and recovery status. Check logs and photos for
-personal information before attaching them.
+[Y2_ROCKBOX_BETA_V2_RELEASE.md](00_project_docs/Y2_ROCKBOX_BETA_V2_RELEASE.md).
 
 ## Repository and licensing status
 
@@ -250,8 +291,7 @@ tools to the source repository.
 
 Original parent-project code and documentation are licensed under
 GPL-2.0-or-later; see [LICENSE](LICENSE) and [NOTICE.md](NOTICE.md). The
-modified Rockbox source retains its upstream licenses. The Beta v0.1.0 asset
-set includes the complete corresponding V88 Rockbox source as well as the
-parent build and validation source in
-`Y2-Rockbox-Beta-v0.1.0-Source.zip`. The development repository and its Git
-history remain local and are not published as a separate GitHub repository.
+modified Rockbox submodule retains its upstream licenses. The Beta V1
+asset set therefore includes the exact V88 Rockbox source commit as well as the
+parent build and validation source. A reachable public repository remains the
+preferred long-term source location.
