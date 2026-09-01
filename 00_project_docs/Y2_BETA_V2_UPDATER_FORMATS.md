@@ -79,8 +79,9 @@ physically accepted Innioasis-format package.
 
 As of the final research check, Updater CE's catalogue still points the Y2
 Rockbox entry at `y1-community/rockbox-y2-rom`. Upstream pull request #42
-changes only that entry to `SPYCEMAGIC/Y2-Rockbox`; it should be marked ready
-after the public release exposes the exact `rom_y2.zip` asset.
+changes only that entry to `SPYCEMAGIC/Y2-Rockbox`. The public release now
+exposes the exact `rom_y2.zip` asset and the pull request is ready for review:
+<https://github.com/y1-community/Innioasis-Updater/pull/42>.
 
 ## Safety boundary
 

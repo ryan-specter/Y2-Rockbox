@@ -4,7 +4,10 @@ Date: 2026-09-01
 
 Tag: `v0.2.0-beta`
 
-Status: **physically accepted and approved for publication**
+Status: **physically accepted and published as a GitHub prerelease**
+
+Public release:
+<https://github.com/SPYCEMAGIC/Y2-Rockbox/releases/tag/v0.2.0-beta>
 
 ## Release identity
 

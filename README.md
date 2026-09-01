@@ -31,6 +31,11 @@ from a different MediaTek device.
 
 ## Current release status
 
+Beta V2 is available as a GitHub prerelease:
+<https://github.com/SPYCEMAGIC/Y2-Rockbox/releases/tag/v0.2.0-beta>.
+Current compatibility reports are collected in
+<https://github.com/SPYCEMAGIC/Y2-Rockbox/issues/9>.
+
 Public beta releases use simple ordinal labels: **Beta V1** is the original V88
 release, **Beta V2** is the current public release, and **Beta V3** is the next
 planned beta. Existing branches and internal artifact names retain their
