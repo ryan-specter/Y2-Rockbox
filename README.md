@@ -16,6 +16,11 @@ retaining the Stock Y2 interface and its guarded recovery path.
 Beta V2 is available as a GitHub prerelease:
 <https://github.com/SPYCEMAGIC/Y2-Rockbox/releases/tag/v0.2.0-beta>.
 
+The files are public for manual download and checksum verification. Direct
+installation through the public Updater CE catalogue remains pending
+[Updater CE PR #45](https://github.com/y1-community/Innioasis-Updater/pull/45).
+Downloading a ZIP manually does not make an old or generic updater safe.
+
 Choose the exact platform asset:
 
 | Platform | Asset |
