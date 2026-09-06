@@ -1,6 +1,6 @@
 # Y2 Rockbox Future Features
 
-Updated: 2026-09-01
+Updated: 2026-09-06
 
 Beta V2 is the current physically accepted public beta. This page records the
 next public priorities without treating an idea as a promised release date.
@@ -46,6 +46,8 @@ next public priorities without treating an idea as a promised release date.
      cache-recovery and carousel behavior accepted in Beta V2.
 
 8. **Safer public updating**
+   - Retain Beta V2's release-locked Class A route, five-target write boundary,
+     readback verification, no-retry rule, and mandatory post-flash reset.
    - Continue toward a user-supplied-stock patching path that preserves user
      data and generates a validated package.
    - Keep complete recovery, checksum and corresponding-source requirements for

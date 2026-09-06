@@ -2,6 +2,13 @@
 
 Date: 2026-07-29
 
+> [!CAUTION]
+> This file is a historical development runbook. Its V84/V88 candidates and
+> InnioasisUpdater 1.1.2 procedures are not Beta V2 installation instructions.
+> For the current public release, use
+> `Y2_ROCKBOX_BETA_V2_INSTALL_GUIDE.md` and only the exact guarded Class A
+> platform asset documented there.
+
 ## Purpose
 
 Use the Y1-style install method on the Y2, but with a Y2-specific package based on the official Y2 3.1.7 firmware.

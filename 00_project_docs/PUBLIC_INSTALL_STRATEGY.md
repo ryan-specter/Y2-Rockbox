@@ -1,76 +1,61 @@
 # Public Install Strategy
 
-Updated: 2026-09-01
+Updated: 2026-09-06
 
 ## Current Beta V2 distribution
 
-Beta V2 publishes two full-install ZIPs containing the same physically accepted
-runtime:
+Beta V2 publishes two byte-identical, platform-qualified Class A update files:
 
-- `Y2-Rockbox-Beta-v0.2.0-InnioasisUpdater.zip` preserves the sparse-image
-  package type used by Beta V1.
-- `rom_y2.zip` is the canonical Y2 asset name for Innioasis Updater CE and
-  contains raw Android system/cache/userdata images.
+- macOS: `Y2-Rockbox-Beta-v0.2.0-UPDATE-ONLY.zip`
+- Windows: `Y2-Rockbox-Beta-v0.2.0-Windows-UPDATE-ONLY.zip`
 
-Both target only the Innioasis Y2 on the official 3.1.7 firmware lineage. They
-must be treated as full firmware installations that can erase user data. The
-release includes SHA-256 checksums, an installation guide, a sanitized package
-manifest and complete corresponding source.
+Both are 361,774,260 bytes with SHA-256
+`409DDB4D2D18111FB8C3AB619F10F04B916B6B2A3FC04D1D38011324563F326A`.
+They target only the Innioasis Y2 on the official Stock 3.1.7 lineage.
 
-Updater CE details and immutable hashes are recorded in
-[Y2_BETA_V2_UPDATER_FORMATS.md](Y2_BETA_V2_UPDATER_FORMATS.md).
+The archive and updater are fail-closed around a five-target Download Only
+plan: UBOOT, BOOTIMG, RECOVERY, LOGO, and ANDROID. PRELOADER, partition tables,
+SEC_RO, CACHE, USRDATA, formatting, whole-device erase, omitted-partition
+cleanup, protected writes, and automatic retry are forbidden.
+
+`rom_y2.zip`, the withdrawn Beta V2 packages, and
+`InnioasisUpdater_Setup_1.1.2.exe` are not supported. See
+[Y2_BETA_V2_UPDATER_FORMATS.md](Y2_BETA_V2_UPDATER_FORMATS.md) for the complete
+contract and failure history.
 
 ## Required user safeguards
 
 Before installation, users must:
 
-1. back up internal storage, microSD content and the complete hidden
-   `.rockbox` directory;
-2. preserve settings, themes, playlists and databases;
-3. retain the official Y2 3.1.7 recovery package;
-4. verify the selected release asset against `SHA256SUMS.txt`; and
-5. use a charged player, reliable data cable and no USB hub.
+1. back up internal storage, microSD content, and the hidden `.rockbox` tree;
+2. preserve settings, themes, playlists, and databases;
+3. retain the official Y2 Stock 3.1.7 recovery package;
+4. verify the selected asset against `SHA256SUMS.txt`;
+5. use a charged player, reliable data cable, and no USB hub; and
+6. stop on any identity, validation, timeout, write, or readback failure.
 
-A Y1 package, a package for another Y2 firmware lineage, or another MediaTek
-preloader/scatter must never be substituted.
+After verified completion, users must fully unplug the Y2 and perform one
+unplugged pinhole reset before the qualified first boot.
 
 ## Public source and history model
 
-The public repository is a reviewed source snapshot. It contains public
-documentation, relevant builders and validators, and a submodule pointing to
-the exact accepted modified Rockbox source. Binary release assets remain in
-GitHub Releases rather than Git history.
-
-The private development history, raw device evidence, vendor images, generated
-firmware, APKs and device-unique protected data are not published as Git source.
-Each binary release instead carries a complete corresponding-source archive
-with the exact parent and Rockbox commit identities used to assemble it.
-
-## Next installer direction
-
-The preferred long-term path is a user-side patcher/packager that:
-
-- asks the user to provide their own official Y2 3.1.7 firmware;
-- verifies its hashes, partition layout and Y2 identity;
-- applies the reviewed Rockbox changes;
-- produces and validates an installable package; and
-- preserves user data where the platform permits it.
-
-That work must not weaken the current recovery gate or silently download,
-build, package or flash a different firmware. A custom flasher is not a
-priority until device detection, package conversion, backup and restore are
-boring and repeatable.
+The public repository contains reviewed source, documentation, builders, and
+validators. Generated firmware, vendor images, device dumps, and private
+device-unique evidence remain outside Git history. Every binary release carries
+complete corresponding source and applicable license notices.
 
 ## Publication requirements
 
-Every public binary release must include:
+Every public firmware release must include:
 
-- a device/firmware compatibility warning;
-- complete backup, install and recovery instructions;
-- immutable checksums and a machine-readable manifest;
-- the complete corresponding source and license notices;
-- a clear list of physically accepted behavior and known limitations; and
-- an explicit statement when an updater or installation route can erase data.
+- exact device and official-baseline compatibility;
+- immutable filenames, sizes, checksums, and machine-readable manifest;
+- complete backup, install, post-flash reset, and recovery instructions;
+- complete corresponding source and license notices;
+- an explicit permitted partition/write plan;
+- separate physical qualification of each public updater route;
+- server-side re-download and checksum verification; and
+- clear accepted behavior, known limitations, and stop conditions.
 
-The project must not describe an experimental or merely offline-validated build
-as physically accepted.
+No experimental, offline-only, generically routed, or merely booting build may
+be described as physically accepted.

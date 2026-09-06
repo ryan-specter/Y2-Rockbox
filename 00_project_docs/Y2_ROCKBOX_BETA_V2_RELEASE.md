@@ -1,95 +1,77 @@
 # Y2 Rockbox Beta V2 Release
 
-Date: 2026-09-01
+Updated: 2026-09-06
 
 Tag: `v0.2.0-beta`
-
-Status: **physically accepted and published as a GitHub prerelease**
 
 Public release:
 <https://github.com/SPYCEMAGIC/Y2-Rockbox/releases/tag/v0.2.0-beta>
 
-## Release identity
+## Immutable release identity
 
-Beta V2 is the corrected P17 Centre Context V1 runtime. It retains the complete
-physically accepted P15/P16 baseline and changes only
-`/system/app/Rockbox.apk`; the native core and full Rockbox resources remain
-byte-identical. The APK and firmware package each reproduced twice, and the
-exact candidate passed guarded installation, five complete readbacks and the
-final focused physical regression.
+- Candidate parent commit: `7E50B1A8FAABC810669B0753282A89206371D20B`
+- Rockbox source commit: `5073CC9D380F8D01016ACE6DCEEA89E0684038C1`
+- macOS asset: `Y2-Rockbox-Beta-v0.2.0-UPDATE-ONLY.zip`
+- Windows asset: `Y2-Rockbox-Beta-v0.2.0-Windows-UPDATE-ONLY.zip`
+- Size: 361,774,260 bytes each
+- SHA-256: `409DDB4D2D18111FB8C3AB619F10F04B916B6B2A3FC04D1D38011324563F326A`
 
-Release ZIPs:
+The two platform files are byte-identical Class A state-preserving updates.
+Their separate names let each guarded updater bind to the exact qualified
+delivery contract. This corrected identity replaces every earlier Beta V2
+flash archive.
 
-| Asset | Purpose | Size | SHA-256 |
-|---|---|---:|---|
-| `Y2-Rockbox-Beta-v0.2.0-InnioasisUpdater.zip` | Same sparse-image package type as Beta V1 | 362,410,130 | `B9F0A4459B3C3DE0E9F5A6C99EC2F3246492EA065E43FF5996A5BEB0777D026E` |
-| `rom_y2.zip` | Canonical Updater CE Y2 package with raw Android images | 370,911,657 | `22195AB5EF775585D73929C05B2FED28BB497C150705A91CC484A02308EB2A46` |
-
-The second ZIP is a deterministic packaging transform of the first. It does
-not contain a different Rockbox build.
+The archive contains only the Y2 scatter, UBOOT, BOOTIMG, RECOVERY, LOGO,
+ANDROID, its signed update contract, and internal checksums. PRELOADER,
+partition-table images, SEC_RO, CACHE, USRDATA, and protected/runtime
+partitions are absent.
 
 ## Highlights since Beta V1
 
-- Complete Bluetooth flow from Rockbox and Stock, including Settings access,
-  discovery/pairing, A2DP playback, controls, disconnect and reconnect.
-- Hold Previous/Next to seek within a track.
-- Optional held-Volume track skipping with normal short-press volume behavior.
-- Verified time/date and RTC persistence without UI freeze.
-- Adjustable Rockbox wheel haptic intensity, including true-off, isolated from
-  Stock's setting.
-- Reliable first-connect and complete USB storage lifecycle on both routes.
-- Stock overlay suppression during Rockbox USB and clean return/unplug/reconnect.
-- Clean under-30-second SPYCE → Rockbox title → Rockbox root launch.
-- Responsive Centre wake and improved Now Playing navigation/context controls.
+- Bluetooth Settings, pairing, A2DP playback, controls, disconnect, and
+  reconnect from Rockbox and Stock.
+- Held Previous/Next seeking and optional held-Volume track skipping.
+- Persistent time/date without UI freeze.
+- Adjustable Rockbox wheel haptics, including true-off, independent from Stock.
+- Reliable first-connect and repeated USB Storage lifecycle on both routes.
+- Cleaner boot presentation and reliable saved Rockbox/Stock routing.
+- Centre wake, long-Centre Now Playing context, and improved Back/Database
+  navigation.
 - PictureFlow cache recovery and a functional album carousel.
-- Reliable Boot Settings, saved Rockbox/Stock normal route and opposite-player
-  Volume-Up route.
-- State-preserving development updates plus physically proven Stock rollback,
-  runtime recovery and protected-range integrity.
 
-## Known limitations and Beta V3 direction
+## Physical qualification
 
-- The final power-down animation can render imperfectly. Shutdown itself is
-  functional; presentation polish is a Beta V3 gate.
-- FM is deferred until a Y2 vendor firmware baseline with demonstrably working
-  radio is available.
-- PictureFlow's branded missing-art slide and faster adjacent-cover loading are
-  deferred polish.
-- Beta V3 also targets lyrics/480x360 theme diagnostics, high-resolution FLAC
-  stability, DAC and wired-audio qualification, Restart Rockbox/settings
-  auditing, and database/playlist track-line presentation controls.
-- Fastboot and a simultaneous-volume chord are not release features.
+The exact firmware passed separate end-to-end macOS and Windows updater routes,
+each beginning from freshly restored official Stock 3.1.7. Both routes wrote
+only UBOOT, BOOTIMG, RECOVERY, LOGO, and ANDROID and completed mandatory
+five-range readback verification.
 
-## Installation safety
+After the required complete unplug and one unplugged pinhole reset, the full
+functional matrix passed on both platforms: clean 28-second Rockbox boot,
+playback, controls, seeking, track navigation, screen and power sleep/wake,
+USB lifecycle, Stock, Boot Settings, saved routes, and shutdown.
 
-Beta V2 is only for the Innioasis Y2 on the 3.1.7 firmware lineage. A Y1
-package, another device's preloader, or another MediaTek scatter must never be
-substituted.
+## Required post-flash reset
 
-Treat both public updater workflows as full firmware installs that can erase
-the player:
+After verified completion, unplug the Y2 completely, power it off if necessary,
+and press/release the pinhole once while unplugged before normal boot. The
+updater-attached automatic boot can inherit temporary loader/display state and
+is not the qualified first boot.
 
-1. Back up internal storage, microSD content, the complete `.rockbox` folder,
-   settings, playlists, themes and database files.
-2. Keep the official Y2 3.1.7 recovery package available.
-3. Verify every release asset against `SHA256SUMS.txt`.
-4. Charge the Y2, use a reliable data cable and avoid hubs.
-5. Do not disconnect until the selected updater explicitly reports completion.
+## Withdrawn routes
 
-## Physical evidence
+Do not use or recreate `rom_y2.zip`, the old
+`InnioasisUpdater_Setup_1.1.2.exe`, or an earlier Beta V2 ZIP. The legacy name
+enters an unqualified generic full-install path. Public delivery requires the
+reviewed fail-closed Y2 Class A route and the exact platform assets above.
 
-- P15 passed Rockbox boot, active/return USB, Stock isolation, three Boot
-  Settings cold boots, saved-route dispatch and final sleep/wake.
-- P16 passed official Stock rollback, protected-range comparisons, exact
-  runtime reinstall with five complete readbacks, Stock regression and the
-  complete final Rockbox/Stock/USB/route matrix.
-- Final no-button boot reached a clean responsive Rockbox root in 28 seconds
-  with no artifacts.
-- Short Centre, the one-second long-Centre context menu with Bookmarks,
-  no-release select-through, Centre sleep/wake, short Back to root and long
-  Back to Database all passed on the exact corrected P17 runtime.
-- Private device-unique protected hashes remain unpublished.
+## Known limitation and Beta V3
 
-Device-unique readbacks and raw physical-test logs remain private. Their
-release-facing results are summarized above without publishing identifiers or
-protected partition hashes.
+The final power-down animation can look imperfect; shutdown itself works. Beta
+V3 priorities include that polish, lyrics and 480x360 theme diagnostics,
+high-resolution FLAC stability, DAC and wired-audio qualification, PictureFlow
+polish, and database/playlist presentation controls. FM remains gated on a Y2
+vendor baseline with a demonstrably working tuner.
+
+Device-unique readbacks and raw physical-test logs remain private. Public
+summaries omit device identifiers and protected partition hashes.
